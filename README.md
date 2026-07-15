@@ -16,7 +16,7 @@ Using the Metasploit Framework, I executed the identified exploit to establish a
 ### 3. Password Recovery & Analysis
 After gaining system access, I retrieved the shadow file and utilized John the Ripper to perform password recovery, demonstrating the importance of strong credential management.
 
-![Password Recovery Phase](redacted3.jpg)
+![Password Recovery Phase](redacted3.png)
 
 ---
 
