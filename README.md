@@ -1,21 +1,30 @@
 # Linux Penetration Testing Lab
 
 ## Project Overview
-This project documents my process of scanning a target system, identifying vulnerabilities, and gaining root access.
+This project documents an end-to-end penetration testing workflow against a Linux target. The objective was to conduct network reconnaissance, identify service vulnerabilities, execute a targeted exploit, and achieve root-level access.
 
-### 1. Network Reconnaissance
-![Nmap Scan](redacted.png)
+### 1. Network Reconnaissance & Vulnerability Scanning
+The engagement began with an `nmap` scan to identify active services, followed by `searchsploit` to identify a known vulnerability in the ProFTPD service.
 
-### 2. Vulnerability Research
-![Searchsploit Results](redacted2.png)
+![Reconnaissance Phase](redacted.png)
 
-### 3. Exploitation & Root Access
-![Root Confirmation](redacted3.png)
+### 2. Exploitation & Privilege Escalation
+Using the Metasploit Framework, I executed the identified exploit to establish a reverse TCP shell, gaining initial access and subsequently escalating to `root`.
 
-### Methodology
-* **Network Reconnaissance**: I used `nmap` to discover open services including ProFTPD 1.3.3c.
-* **Vulnerability Research**: I utilized `searchsploit` to identify a specific remote code execution backdoor.
-* **Exploitation**: I used Metasploit to successfully exploit the service and confirm root-level access with `whoami`.
+![Exploitation Phase](redacted2.png)
 
-### Security & Privacy
-* Sensitive system outputs (like /etc/shadow hashes) have been redacted from these images to demonstrate professional data privacy practices.
+### 3. Password Recovery & Analysis
+After gaining system access, I retrieved the shadow file and utilized John the Ripper to perform password recovery, demonstrating the importance of strong credential management.
+
+![Password Recovery Phase](redacted3.jpg)
+
+---
+
+## Technical Methodology
+* **Reconnaissance**: Identified ProFTPD 1.3.3c via `nmap` and confirmed vulnerability via `searchsploit`.
+* **Exploitation**: Used Metasploit to successfully trigger a remote code execution backdoor.
+* **Privilege Escalation**: Confirmed administrative access using `whoami`.
+* **Credential Analysis**: Performed offline password cracking using John the Ripper.
+
+## Security & Privacy Note
+In accordance with professional security practices, sensitive system file outputs (such as credential hashes) have been fully sanitized and redacted from this public report to enforce data privacy and security hygiene.
